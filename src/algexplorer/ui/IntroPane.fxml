@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<StackPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.IntroPane" stylesheets="@UITheme.css" fx:id="rootPane" prefWidth="1180" prefHeight="750">
+    <VBox alignment="CENTER" spacing="22" maxWidth="620">
+        <padding>
+            <Insets top="30" right="30" bottom="30" left="30"/>
+        </padding>
+
+        <!-- Glowing AE Logo Icon -->
+        <Label fx:id="logoBadge" text="AE" styleClass="intro-logo"/>
+
+        <!-- Title & Subtitle -->
+        <VBox alignment="CENTER" spacing="6">
+            <Label fx:id="titleLabel" text="ALGORITHM EXPLORER" styleClass="intro-title"/>
+            <Label fx:id="subTitleLabel" text="Interactive Step-by-Step Visualizations &amp; Learning Sandbox" styleClass="intro-subtitle"/>
+        </VBox>
+
+        <!-- Stats Counters Row: 21 Algorithms, 4 Categories, 0 Built-in sorts used -->
+        <HBox fx:id="statsRow" alignment="CENTER" spacing="42" styleClass="surface-accent">
+            <padding>
+                <Insets top="18" right="30" bottom="18" left="30"/>
+            </padding>
+            <VBox alignment="CENTER" spacing="4">
+                <Label fx:id="algoCountLabel" text="0" styleClass="stat-number-large"/>
+                <Label text="Algorithms" styleClass="stat-sub-text"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox alignment="CENTER" spacing="4">
+                <Label fx:id="catCountLabel" text="0" styleClass="stat-number-large"/>
+                <Label text="Categories" styleClass="stat-sub-text"/>
+            </VBox>
+            <Separator orientation="VERTICAL"/>
+            <VBox alignment="CENTER" spacing="4">
+                <Label fx:id="sortsCountLabel" text="0" styleClass="stat-number-large"/>
+                <Label text="Built-in sorts used" styleClass="stat-sub-text"/>
+            </VBox>
+        </HBox>
+
+        <!-- Launch / Next Action Button & Timer Prompt -->
+        <VBox alignment="CENTER" spacing="10">
+            <Button fx:id="startBtn" text="Start / Next  ▶" styleClass="btn-intro-launch"/>
+            <Label fx:id="timerLabel" text="Auto-launching in 4 seconds..." styleClass="intro-timer-hint"/>
+        </VBox>
+    </VBox>
+</StackPane>
