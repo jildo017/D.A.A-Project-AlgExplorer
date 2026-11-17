@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.StructuresPane" stylesheets="@UITheme.css" prefWidth="1080" prefHeight="720">
+    <padding>
+        <Insets top="14" right="20" bottom="14" left="20"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <!-- Header Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <Button fx:id="backBtn" text="← Back to Hub" styleClass="btn-secondary"/>
+                <Label text="🌲 Data Structures Explorer" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox spacing="8" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnLinkedList" text="Singly List" styleClass="algo-btn"/>
+                    <Button fx:id="btnDoublyList" text="Doubly List" styleClass="algo-btn"/>
+                    <Button fx:id="btnBST" text="Binary Search Tree" styleClass="algo-btn"/>
+                    <Button fx:id="btnStack" text="Stack (LIFO)" styleClass="algo-btn"/>
+                    <Button fx:id="btnQueue" text="Queue (FIFO)" styleClass="algo-btn"/>
+                    <Button fx:id="exitBtn" text="Exit App" styleClass="btn-danger"/>
+                </HBox>
+            </HBox>
+
+            <!-- Operation Controls Toolbar -->
+            <HBox alignment="CENTER_LEFT" spacing="10" styleClass="surface-accent">
+                <Label text="Value:" styleClass="stat-label"/>
+                <TextField fx:id="valueInput" text="42" prefWidth="70" styleClass="text-input-dark"/>
+
+                <Button fx:id="action1Btn" text="Insert Head" styleClass="btn-primary"/>
+                <Button fx:id="action2Btn" text="Insert Tail" styleClass="btn-secondary"/>
+                <Button fx:id="actionDeleteBtn" text="Delete" styleClass="btn-secondary"/>
+                <Button fx:id="actionSearchBtn" text="🔎 Search" styleClass="btn-secondary"/>
+                <Button fx:id="actionExtraBtn" text="Reverse" styleClass="btn-secondary"/>
+                <Button fx:id="sampleBtn" text="Sample Data" styleClass="btn-secondary"/>
+                <Button fx:id="clearBtn" text="Clear" styleClass="btn-danger"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <VBox styleClass="stat-pill" alignment="CENTER">
+                    <Label text="ELEMENTS" styleClass="stat-label"/>
+                    <Label fx:id="countLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-pill" alignment="CENTER">
+                    <Label text="COMPLEXITY" styleClass="stat-label"/>
+                    <Label fx:id="complexityLabel" text="O(1) / O(n)" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="8" right="0" bottom="8" left="0"/>
+            </padding>
+
+            <!-- Interactive Canvas -->
+            <StackPane styleClass="canvas-box" VBox.vgrow="ALWAYS" minHeight="330">
+                <Canvas fx:id="canvas" width="1030" height="350"/>
+            </StackPane>
+
+            <!-- Status & Operation Feedback -->
+            <HBox styleClass="desc-box" alignment="CENTER_LEFT" spacing="10">
+                <Label text="LOG &amp; FEEDBACK:" styleClass="stat-label"/>
+                <Label fx:id="feedbackLabel" text="Select a data structure and click operations." styleClass="desc-text" HBox.hgrow="ALWAYS"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
