@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.ComplexityPane" stylesheets="@UITheme.css" prefWidth="1080" prefHeight="720">
+    <padding>
+        <Insets top="16" right="24" bottom="16" left="24"/>
+    </padding>
+
+    <top>
+        <HBox alignment="CENTER_LEFT" spacing="16">
+            <Button fx:id="backBtn" text="← Dashboard" styleClass="btn-secondary"/>
+            <VBox spacing="2">
+                <Label text="📈 Big-O Complexity Reference Matrix" styleClass="section-title"/>
+                <Label text="Asymptotic Best, Average, Worst time and space bounds across all implemented structures and algorithms." styleClass="subtitle"/>
+            </VBox>
+        </HBox>
+    </top>
+
+    <center>
+        <ScrollPane fitToWidth="true" styleClass="scroll-pane-transparent">
+            <VBox spacing="16">
+                <padding>
+                    <Insets top="12" right="8" bottom="12" left="8"/>
+                </padding>
+
+                <!-- Sorting Algorithms Complexity Table -->
+                <VBox spacing="8" styleClass="surface">
+                    <Label text="SORTING ALGORITHMS COMPLEXITY" styleClass="stat-label"/>
+                    <GridPane hgap="12" vgap="8" alignment="CENTER_LEFT">
+                        <!-- Headers -->
+                        <Label text="ALGORITHM" styleClass="stat-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="BEST TIME" styleClass="stat-label" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="AVERAGE TIME" styleClass="stat-label" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        <Label text="WORST TIME" styleClass="stat-label" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                        <Label text="SPACE" styleClass="stat-label" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+
+                        <!-- Rows -->
+                        <Label text="Quick Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="Ω(n log n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="Θ(n log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Label text="O(n²)" styleClass="table-red" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                        <Label text="O(log n)" styleClass="table-cyan" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+
+                        <Label text="Merge Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label text="Ω(n log n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="Θ(n log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Label text="O(n log n)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+                        <Label text="Heap Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <Label text="Ω(n log n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label text="Θ(n log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        <Label text="O(n log n)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+
+                        <Label text="Tim Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <Label text="Ω(n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label text="Θ(n log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                        <Label text="O(n log n)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+
+                        <Label text="Insertion Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                        <Label text="Ω(n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Label text="Θ(n²)" styleClass="table-red" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                        <Label text="O(n²)" styleClass="table-red" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+
+                        <Label text="Bubble Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="6"/>
+                        <Label text="Ω(n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="6"/>
+                        <Label text="Θ(n²)" styleClass="table-red" GridPane.columnIndex="2" GridPane.rowIndex="6"/>
+                        <Label text="O(n²)" styleClass="table-red" GridPane.columnIndex="3" GridPane.rowIndex="6"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="6"/>
+
+                        <Label text="Counting Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="7"/>
+                        <Label text="Ω(n+k)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="7"/>
+                        <Label text="Θ(n+k)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="7"/>
+                        <Label text="O(n+k)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="7"/>
+                        <Label text="O(k)" styleClass="table-yellow" GridPane.columnIndex="4" GridPane.rowIndex="7"/>
+
+                        <Label text="Radix Sort" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="8"/>
+                        <Label text="Ω(d·(n+k))" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="8"/>
+                        <Label text="Θ(d·(n+k))" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="8"/>
+                        <Label text="O(d·(n+k))" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="8"/>
+                        <Label text="O(n+k)" styleClass="table-yellow" GridPane.columnIndex="4" GridPane.rowIndex="8"/>
+                    </GridPane>
+                </VBox>
+
+                <!-- Searching & Data Structures Complexity Table -->
+                <VBox spacing="8" styleClass="surface">
+                    <Label text="SEARCHING &amp; DATA STRUCTURES COMPLEXITY" styleClass="stat-label"/>
+                    <GridPane hgap="12" vgap="8" alignment="CENTER_LEFT">
+                        <Label text="STRUCTURE / ALGORITHM" styleClass="stat-label" GridPane.columnIndex="0" GridPane.rowIndex="0"/>
+                        <Label text="ACCESS" styleClass="stat-label" GridPane.columnIndex="1" GridPane.rowIndex="0"/>
+                        <Label text="SEARCH" styleClass="stat-label" GridPane.columnIndex="2" GridPane.rowIndex="0"/>
+                        <Label text="INSERTION" styleClass="stat-label" GridPane.columnIndex="3" GridPane.rowIndex="0"/>
+                        <Label text="DELETION" styleClass="stat-label" GridPane.columnIndex="4" GridPane.rowIndex="0"/>
+
+                        <Label text="Binary Search" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="1"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="1" GridPane.rowIndex="1"/>
+                        <Label text="O(log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="1"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="3" GridPane.rowIndex="1"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="4" GridPane.rowIndex="1"/>
+
+                        <Label text="Linear Search" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="2"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="1" GridPane.rowIndex="2"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="2" GridPane.rowIndex="2"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="3" GridPane.rowIndex="2"/>
+                        <Label text="—" styleClass="table-cyan" GridPane.columnIndex="4" GridPane.rowIndex="2"/>
+
+                        <Label text="Singly Linked List" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="3"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="1" GridPane.rowIndex="3"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="2" GridPane.rowIndex="3"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="3"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="3"/>
+
+                        <Label text="Binary Search Tree (BST)" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="4"/>
+                        <Label text="O(log n)" styleClass="table-green" GridPane.columnIndex="1" GridPane.rowIndex="4"/>
+                        <Label text="O(log n)" styleClass="table-green" GridPane.columnIndex="2" GridPane.rowIndex="4"/>
+                        <Label text="O(log n)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="4"/>
+                        <Label text="O(log n)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="4"/>
+
+                        <Label text="Stack &amp; Queue" styleClass="table-title" GridPane.columnIndex="0" GridPane.rowIndex="5"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="1" GridPane.rowIndex="5"/>
+                        <Label text="O(n)" styleClass="table-yellow" GridPane.columnIndex="2" GridPane.rowIndex="5"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="3" GridPane.rowIndex="5"/>
+                        <Label text="O(1)" styleClass="table-green" GridPane.columnIndex="4" GridPane.rowIndex="5"/>
+                    </GridPane>
+                </VBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>
