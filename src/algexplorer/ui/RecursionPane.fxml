@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.RecursionPane" stylesheets="@UITheme.css" prefWidth="1040" prefHeight="700">
+    <padding>
+        <Insets top="14" right="20" bottom="14" left="20"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <Button fx:id="backBtn" text="← Back to Hub" styleClass="btn-secondary"/>
+                <Label text="🔄 Recursion Explorer" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox spacing="8" alignment="CENTER_RIGHT">
+                    <Button fx:id="btnHanoi" text="Tower of Hanoi" styleClass="algo-btn"/>
+                    <Button fx:id="btnFib" text="Fibonacci Tree" styleClass="algo-btn"/>
+                    <Button fx:id="btnFact" text="Factorial Stack" styleClass="algo-btn"/>
+                    <Button fx:id="btnBinSearch" text="Recursive Bin Search" styleClass="algo-btn"/>
+                    <Button fx:id="exitBtn" text="Exit App" styleClass="btn-danger"/>
+                </HBox>
+            </HBox>
+
+            <HBox alignment="CENTER_LEFT" spacing="12" styleClass="surface-accent">
+                <Label fx:id="inputPromptLabel" text="Number of Disks (3 to 6):" styleClass="stat-label"/>
+                <TextField fx:id="inputN" text="4" prefWidth="60" styleClass="text-input-dark"/>
+                <Button fx:id="applyBtn" text="Apply" styleClass="btn-secondary"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <VBox styleClass="stat-pill" alignment="CENTER">
+                    <Label text="CALL STACK DEPTH" styleClass="stat-label"/>
+                    <Label fx:id="stackDepthLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+                <VBox styleClass="stat-pill" alignment="CENTER">
+                    <Label text="TOTAL MOVES / CALLS" styleClass="stat-label"/>
+                    <Label fx:id="totalCallsLabel" text="0" styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="8" right="0" bottom="8" left="0"/>
+            </padding>
+
+            <!-- Main Interactive Canvas -->
+            <StackPane styleClass="canvas-box" VBox.vgrow="ALWAYS" minHeight="300">
+                <Canvas fx:id="canvas" width="1000" height="320"/>
+            </StackPane>
+
+            <!-- Action Status Banner -->
+            <HBox styleClass="desc-box" alignment="CENTER_LEFT" spacing="10">
+                <Label text="CURRENT FRAME:" styleClass="stat-label"/>
+                <Label fx:id="actionText" text="Ready. Click Start to trace execution." styleClass="desc-text" HBox.hgrow="ALWAYS"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="stepCounterLabel" text="Step 0 / 0" styleClass="stat-value"/>
+            </HBox>
+
+            <!-- Playback Controls -->
+            <HBox alignment="CENTER_LEFT" spacing="14" styleClass="surface-accent">
+                <Button fx:id="playBtn" text="▶ Start Trace" styleClass="btn-primary"/>
+                <Button fx:id="stepBackBtn" text="⏮ Prev" styleClass="btn-secondary"/>
+                <Button fx:id="stepForwardBtn" text="⏭ Next" styleClass="btn-secondary"/>
+                <Button fx:id="resetBtn" text="↺ Reset" styleClass="btn-secondary"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <Label text="Pace:" styleClass="stat-label"/>
+                <Slider fx:id="speedSlider" min="150" max="2500" value="850" prefWidth="150"/>
+                <Label fx:id="speedValueLabel" text="850 ms (Study Pace)" styleClass="stat-value"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
