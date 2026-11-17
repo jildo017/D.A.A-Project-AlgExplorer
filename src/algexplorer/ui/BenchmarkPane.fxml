@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.BenchmarkPane" stylesheets="@UITheme.css" prefWidth="1040" prefHeight="700">
+    <padding>
+        <Insets top="14" right="20" bottom="14" left="20"/>
+    </padding>
+
+    <top>
+        <VBox spacing="10">
+            <!-- Header -->
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <Button fx:id="backBtn" text="← Back to Hub" styleClass="btn-secondary"/>
+                <Label text="⏱️ Algorithm Benchmark Arena" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Button fx:id="exitBtn" text="Exit App" styleClass="btn-danger"/>
+            </HBox>
+
+            <!-- Configuration Toolbar -->
+            <HBox alignment="CENTER_LEFT" spacing="16" styleClass="surface-accent">
+                <Label text="Array Size (N):" styleClass="stat-label"/>
+                <ComboBox fx:id="sizeCombo" prefWidth="110"/>
+
+                <Label text="Distribution:" styleClass="stat-label"/>
+                <ComboBox fx:id="distCombo" prefWidth="130"/>
+
+                <Button fx:id="runBtn" text="⚡ Run Benchmark" styleClass="btn-primary"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <VBox styleClass="stat-pill" alignment="CENTER">
+                    <Label text="WINNER (FASTEST)" styleClass="stat-label"/>
+                    <Label fx:id="winnerLabel" text="Pending..." styleClass="stat-value"/>
+                </VBox>
+            </HBox>
+        </VBox>
+    </top>
+
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="8" right="0" bottom="8" left="0"/>
+            </padding>
+
+            <!-- Performance Bar Chart Canvas -->
+            <StackPane styleClass="canvas-box" VBox.vgrow="ALWAYS" minHeight="340">
+                <Canvas fx:id="canvas" width="1000" height="360"/>
+            </StackPane>
+
+            <!-- Status Banner -->
+            <HBox styleClass="desc-box" alignment="CENTER_LEFT" spacing="10">
+                <Label text="STATUS:" styleClass="stat-label"/>
+                <Label fx:id="statusLabel" text="Ready. Select array size &amp; distribution, then click Run Benchmark." styleClass="desc-text" HBox.hgrow="ALWAYS"/>
+                <ProgressBar fx:id="progressBar" prefWidth="180" progress="0.0" visible="false"/>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
