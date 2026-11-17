@@ -1,0 +1,22 @@
+=== MEMBER 1 (GODWIN - TEAM LEAD) ===
+MODULE: Core Architecture, UI Framework, and 11-Algorithm Sorting Engine
+
+FILES INCLUDED:
+- src/ui/MainFrame.java
+- src/ui/HomePanel.java
+- src/ui/CategoryPanel.java
+- src/ui/VisualizerPanel.java
+- src/ui/WorkspacePanel.java
+- src/algorithms/SortingAlgorithms.java
+- src/algorithms/StepListener.java
+- run.bat
+- README.md
+
+HOW TO PUSH TO CLASS REPOSITORY IN VS CODE:
+1. Open your cloned class repository folder in VS Code.
+2. Copy the 'src' folder, run.bat, and README.md from this package into your repo.
+3. Open Terminal in VS Code (Ctrl + ~) and run:
+   git checkout -b feature/core-architecture-sorting
+   git add .
+   git commit -m "feat(core): implement window framework, dashboard UI, and 11 sorting algorithms"
+   git push -u origin feature/core-architecture-sorting
