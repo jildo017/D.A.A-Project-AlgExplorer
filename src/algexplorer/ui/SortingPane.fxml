@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.canvas.Canvas?>
+<?import javafx.geometry.*?>
+
+<BorderPane xmlns:fx="http://javafx.com/fxml" fx:controller="algexplorer.ui.SortingPane" stylesheets="@UITheme.css" prefWidth="1080" prefHeight="720">
+    <padding>
+        <Insets top="14" right="20" bottom="14" left="20"/>
+    </padding>
+
+    <!-- Top: Navigation Header and 16-Algorithm Selection Grid -->
+    <top>
+        <VBox spacing="10">
+            <!-- Breadcrumb Navigation Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="14">
+                <Button fx:id="backBtn" text="← Back to Hub" styleClass="btn-secondary"/>
+                <Label text="⚡ Sorting Visualizer (16 Algorithms)" styleClass="section-title"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <HBox spacing="10" alignment="CENTER_RIGHT">
+                    <VBox styleClass="stat-pill" alignment="CENTER">
+                        <Label text="ALGORITHM" styleClass="stat-label"/>
+                        <Label fx:id="algoNameStat" text="Bubble Sort" styleClass="stat-value"/>
+                    </VBox>
+                    <VBox styleClass="stat-pill" alignment="CENTER">
+                        <Label text="COMPLEXITY" styleClass="stat-label"/>
+                        <Label fx:id="algoComplexityStat" text="O(n²)" styleClass="stat-value"/>
+                    </VBox>
+                    <Button fx:id="exitBtn" text="Exit App" styleClass="btn-danger"/>
+                </HBox>
+            </HBox>
+
+            <!-- 16 Algorithms Selector Grid (2 rows of 8) -->
+            <VBox spacing="6" styleClass="surface-accent">
+                <HBox alignment="CENTER" spacing="6">
+                    <Button fx:id="btnBubble" text="1. Bubble" styleClass="algo-btn"/>
+                    <Button fx:id="btnSelection" text="2. Selection" styleClass="algo-btn"/>
+                    <Button fx:id="btnInsertion" text="3. Insertion" styleClass="algo-btn"/>
+                    <Button fx:id="btnShell" text="4. Shell" styleClass="algo-btn"/>
+                    <Button fx:id="btnMerge" text="5. Merge" styleClass="algo-btn"/>
+                    <Button fx:id="btnQuick" text="6. Quick" styleClass="algo-btn"/>
+                    <Button fx:id="btnHeap" text="7. Heap" styleClass="algo-btn"/>
+                    <Button fx:id="btnCocktail" text="8. 🍸 Cocktail" styleClass="algo-btn"/>
+                </HBox>
+                <HBox alignment="CENTER" spacing="6">
+                    <Button fx:id="btnCounting" text="9. Counting" styleClass="algo-btn"/>
+                    <Button fx:id="btnRadix" text="10. Radix" styleClass="algo-btn"/>
+                    <Button fx:id="btnBucket" text="11. Bucket" styleClass="algo-btn"/>
+                    <Button fx:id="btnCycle" text="12. Cycle" styleClass="algo-btn"/>
+                    <Button fx:id="btnTim" text="13. Tim" styleClass="algo-btn"/>
+                    <Button fx:id="btnPancake" text="14. 🥞 Pancake" styleClass="algo-btn"/>
+                    <Button fx:id="btnComb" text="15. 🪮 Comb" styleClass="algo-btn"/>
+                    <Button fx:id="btnGnome" text="16. 🍄 Gnome" styleClass="algo-btn"/>
+                </HBox>
+            </VBox>
+        </VBox>
+    </top>
+
+    <!-- Center: Array inputs, Canvas Visualization & Controls -->
+    <center>
+        <VBox spacing="10">
+            <padding>
+                <Insets top="8" right="0" bottom="8" left="0"/>
+            </padding>
+
+            <!-- Array Configuration Bar -->
+            <HBox alignment="CENTER_LEFT" spacing="10">
+                <Label text="Array Input (max 100):" styleClass="stat-label"/>
+                <TextField fx:id="inputField" text="38, 27, 43, 3, 9, 82, 10, 65, 19, 74, 51, 88, 14, 96, 31" HBox.hgrow="ALWAYS" styleClass="text-input-dark"/>
+                <Button fx:id="loadBtn" text="Apply" styleClass="btn-secondary"/>
+                <Button fx:id="randomBtn" text="Random" styleClass="btn-secondary"/>
+                <Button fx:id="nearlySortedBtn" text="Nearly Sorted" styleClass="btn-secondary"/>
+                <Button fx:id="reversedBtn" text="Reversed" styleClass="btn-secondary"/>
+            </HBox>
+
+            <!-- Live Canvas Viewport -->
+            <StackPane styleClass="canvas-box" VBox.vgrow="ALWAYS" minHeight="270">
+                <Canvas fx:id="canvas" width="1030" height="280"/>
+            </StackPane>
+
+            <!-- Narration & Operation Banner -->
+            <HBox styleClass="desc-box" alignment="CENTER_LEFT" spacing="10">
+                <Label text="ACTION:" styleClass="stat-label"/>
+                <Label fx:id="actionText" text="Ready. Select an algorithm and start visualization." styleClass="desc-text" HBox.hgrow="ALWAYS"/>
+                <Region HBox.hgrow="ALWAYS"/>
+                <Label fx:id="stepCounterLabel" text="Step 0 / 0" styleClass="stat-value"/>
+            </HBox>
+
+            <!-- Playback Controls and Telemetry -->
+            <HBox alignment="CENTER_LEFT" spacing="14" styleClass="surface-accent">
+                <Button fx:id="playBtn" text="▶ Start Sorting" styleClass="btn-primary"/>
+                <Button fx:id="stepBackBtn" text="⏮ Prev" styleClass="btn-secondary"/>
+                <Button fx:id="stepForwardBtn" text="⏭ Next" styleClass="btn-secondary"/>
+                <Button fx:id="resetBtn" text="↺ Reset" styleClass="btn-secondary"/>
+
+                <Separator orientation="VERTICAL"/>
+
+                <Label text="Pace:" styleClass="stat-label"/>
+                <Slider fx:id="speedSlider" min="80" max="2500" value="750" prefWidth="150"/>
+                <Label fx:id="speedValueLabel" text="750 ms (Study Pace)" styleClass="stat-value"/>
+
+                <Region HBox.hgrow="ALWAYS"/>
+
+                <HBox spacing="14" alignment="CENTER_RIGHT">
+                    <VBox alignment="CENTER">
+                        <Label text="COMPARISONS" styleClass="stat-label"/>
+                        <Label fx:id="comparisonsLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                    <Separator orientation="VERTICAL"/>
+                    <VBox alignment="CENTER">
+                        <Label text="SWAPS / MOVES" styleClass="stat-label"/>
+                        <Label fx:id="swapsLabel" text="0" styleClass="stat-value"/>
+                    </VBox>
+                </HBox>
+            </HBox>
+        </VBox>
+    </center>
+</BorderPane>
